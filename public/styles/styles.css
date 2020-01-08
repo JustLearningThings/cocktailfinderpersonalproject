@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Ibarra+Real+Nova|Quicksand&display=swap');
 
+/* refactor hidden classes as they are added through JS */
+
 body {
     margin: 0;
 }
@@ -56,6 +58,88 @@ label {
     margin-right: 2%;
     font-size: 1.2em;
 }
+
+#search-results {
+    width: calc(100vw - 20px);
+    min-height: 10vw;
+    text-align: center;
+    font-family: 'Quicksand', serif;
+    display: none;
+}
+
+.result {
+    border-radius: 40px;
+    border: 2px solid black;
+    width: 50%;
+    margin: 2% auto;
+    padding: 3.5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.result .result-name {
+    /* color: dodgerblue; */
+    color: #3a11d1;
+    margin-left: 3%;
+    font-size: 1.2rem;
+}
+
+.result-content {
+    display: none;
+    overflow: hidden;
+    background-color: ivory;
+    padding: 0 1%;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.fa {
+    margin-right: 2.3%;
+    border-radius: 20px;
+}
+
+.fa:hover {
+    background-color: rgba(31, 31, 31, 0.158);
+}
+
+.content-main {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-main p {
+    margin: 2%;
+}
+
+.content-img {
+    max-width: 70%;
+    max-height: 70%;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.content-main .content-brief {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-instructions {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-instructions .instructions-header {
+    font-size: 1.3em;
+}
+
+.content-instructions li {
+    list-style-type: upper-roman;
+}
+
+#info {
+    margin-top: 1%;
+}
+
 
 #input {
     display: flex;
@@ -243,6 +327,28 @@ footer #left, footer #right {
         width: 70%;
         margin-top: 20px;
     }
+    .result-content {
+        padding: 2%;
+        max-width: 60%;
+    }
+
+    .content-main {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .content-main .content-brief {
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .content-main p {
+        margin: 2%;
+        font-size: 1.1rem;
+    }
+    .content-img {
+        max-width: 60%;
+        max-height: 60%;
+    }
+
 
     #container {
         grid-template-columns: 50% 50%;
@@ -285,5 +391,76 @@ footer #left, footer #right {
         border: none;
         border-bottom: 1px solid rgb(233, 231, 231);
         background-color: none;
+    }
+}
+
+.expand {
+    animation: expand .8s linear 1 forwards;
+    -webkit-animation: expand .8s linear 1 forwards;
+}
+
+.shrink {
+    animation: shrink .8s ease-out 1 forwards;
+    -webkit-animation: shrink .8s ease-out 1 forwards;
+}
+
+@keyframes expand {
+     from {
+        width: 50%;
+        background-color: white;
+    }
+    to {
+        width: 70%;
+        background-color: ghostwhite;
+    } 
+}
+
+/* unrequired class, has semantic usage, when working in index.js */
+@keyframes shrink {
+    from {
+        width: 70%;
+        background-color: ghostwhite;
+    }
+    to {
+        background-color: ghostwhite;
+        width: 50%;
+    }
+}
+
+.rotate {
+    animation: rotate-icon .8s ease-out 1 forwards;
+    -webkit-animation: rotate-icon .8s ease-out 1 forwards;
+}
+
+.rotate-reverse {
+    animation: rotate-reverse-icon .2s ease-out 1 forwards;
+    -webkit-animation: rotate-reverse-icon .2s ease-out 1 forwards;
+}
+
+
+@keyframes rotate-icon {
+    100% {
+        transform: rotate(180deg);
+    }
+}
+
+@keyframes rotate-reverse-icon {
+    100% {
+        transform: rotate(-180deg);
+    }
+}
+
+.appear {
+    animation: appear-content .8s linear 1 forwards;
+    -webkit-animation: appear-content .8s linear 1 forwards;
+}
+
+@keyframes appear-content {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+        top: 2%;
     }
 }

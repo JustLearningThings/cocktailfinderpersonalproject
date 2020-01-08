@@ -12,6 +12,10 @@ app.get('/', (req, res) => {
     res.render('index.html');
 });
 
+app.get('/:smth', (req, res) => {
+    res.redirect('/');
+});
+
 
 app.listen(process.env.SITE_PORT, () => {
     console.log(`Listening on port ${process.env.SITE_PORT}...`);
