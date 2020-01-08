@@ -1,5 +1,8 @@
 let express = require('express');
 const app = express();
+let port = process.env.PORT;
+if(!port || port == '')
+    port = 8000;
 
 // for environment variables
 require('dotenv').config();
@@ -17,6 +20,6 @@ app.get('/:smth', (req, res) => {
 });
 
 
-app.listen(process.env.SITE_PORT, () => {
-    console.log(`Listening on port ${process.env.SITE_PORT}...`);
+app.listen(port, () => {
+    console.log(`Listening on port ${port}...`);
 });
