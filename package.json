@@ -1,0 +1,21 @@
+{
+  "name": "cocktailfinder",
+  "version": "1.0.0",
+  "description": "a website for finding cocktails and brief instructions to prepare them",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "cocktail finder website"
+  },
+  "author": "Windwalker",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.2"
+  }
+}
